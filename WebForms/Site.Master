@@ -53,6 +53,11 @@
                 </div>
             </div>
         </nav>
+        <nav>
+    <a href="Registracija.aspx">Registracija</a>
+    <!-- Dodajte ostale linkove ovdje -->
+</nav>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
