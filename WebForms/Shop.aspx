@@ -12,5 +12,10 @@
     <p>
         <asp:Button ID="btSpremi" runat="server" Text="Spremi" />
     </p>
+    <p>
+        <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+    </p>
     
 </asp:Content>
