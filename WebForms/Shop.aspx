@@ -13,8 +13,13 @@
         <asp:Button ID="btSpremi" runat="server" Text="Spremi" />
     </p>
     <p>
-        <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-        </asp:GridView>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" HeaderStyle-BackColor="LightGray">
+    <Columns>
+        <asp:BoundField DataField="Id" HeaderText="ID" />
+        <asp:BoundField DataField="Name" HeaderText="Name" />
+        <asp:BoundField DataField="Description" HeaderText="Description" />
+    </Columns>
+</asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
     </p>
     
