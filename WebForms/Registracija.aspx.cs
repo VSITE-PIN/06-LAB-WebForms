@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace YourNamespace
+namespace WebForms
 {
     public partial class Registracija : System.Web.UI.Page
     {
