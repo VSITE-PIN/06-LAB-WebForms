@@ -11,7 +11,7 @@ namespace WebForms
 {
 
 
-    public partial class Register
+    public partial class BazaConnected
     {
     }
 }

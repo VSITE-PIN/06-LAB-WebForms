@@ -11,7 +11,7 @@ namespace YourNamespace
 {
 
 
-    public partial class Login
+    public partial class Registracija
     {
 
         /// <summary>
@@ -33,6 +33,15 @@ namespace YourNamespace
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
+        /// txtFullName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFullName;
+
+        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>
@@ -42,12 +51,21 @@ namespace YourNamespace
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
-        /// btnLogin control.
+        /// txtConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+
+        /// <summary>
+        /// btnRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegister;
     }
 }

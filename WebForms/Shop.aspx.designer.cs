@@ -11,7 +11,7 @@ namespace YourNamespace
 {
 
 
-    public partial class Login
+    public partial class Shop
     {
 
         /// <summary>
@@ -24,30 +24,39 @@ namespace YourNamespace
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
-        /// txtUsername control.
+        /// txtProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtProductName;
 
         /// <summary>
-        /// txtPassword control.
+        /// txtProductDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtProductDescription;
 
         /// <summary>
-        /// btnLogin control.
+        /// btnSaveProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnSaveProduct;
+
+        /// <summary>
+        /// GridViewProducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewProducts;
     }
 }
