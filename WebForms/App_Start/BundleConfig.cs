@@ -39,7 +39,7 @@ namespace WebForms
 
         public static void RegisterJQueryScriptManager()
         {
-            ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
+            Microsoft.ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
                 new ScriptResourceDefinition
                 {
                     Path = "~/scripts/jquery-3.7.0.min.js",
