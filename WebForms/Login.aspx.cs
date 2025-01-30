@@ -1,33 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace WebForms
 {
     public partial class Login : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
+            string connectionString = "Server = ELITEBOOK\\SQLEXPRESS; Database = WebFormsLabos; Trusted_Connection = True; MultipleActiveResultSets = true; TrustServerCertificate = true; ";
 
-        }
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
 
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
+                string query = "SELECT COUNT(*) FROM Users WHERE UserName = @UserName AND Password = @Password";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@UserName", txtUserName.Text);
+                cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
+                int count = (int)cmd.ExecuteScalar();
 
-        }
-
-        protected void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btPrijava_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Shop.aspx");
-
+                if (count > 0)
+                {
+                    Response.Redirect("Shop.aspx");
+                }
+                else
+                {
+                    lblMessage.Text = "Invalid credentials!";
+                }
+            }
         }
     }
 }

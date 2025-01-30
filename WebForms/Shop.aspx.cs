@@ -1,46 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data; // Include this for DataTable
+using System.Data;
+using System.Data.SqlClient;
 
 namespace WebForms
 {
     public partial class Shop : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) // Ensure data is only loaded once
+            if (!IsPostBack) 
             {
                 PopulateGridView();
             }
         }
 
+        
         private void PopulateGridView()
         {
-            // Create a DataTable with the columns "ID", "Name", and "Description"
-            DataTable dt = new DataTable();
-            dt.Columns.Add("ID", typeof(int));
-            dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("Description", typeof(string));
+            
+            string connectionString = @"Server=ELITEBOOK\SQLEXPRESS;Database=WebFormsLabos;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;";
 
-            // Add rows with the data
-            dt.Rows.Add(1, "Pasta", "Pasta za zube");
-            dt.Rows.Add(2, "Kupka", "Kupka za kadu");
-            dt.Rows.Add(3, "Kruh", "Bijeli kruh");
-            dt.Rows.Add(4, "Tost", "Preprženi kruh");
-            dt.Rows.Add(5, "test", "test");
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
 
-            // Bind the DataTable to the GridView
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
+                
+                string query = "SELECT * FROM Products";
+
+                
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+       
+        protected void btnSpremi_Click(object sender, EventArgs e)
         {
-            // You can handle row selection here if needed
+            
+            string Naziv = txtNaziv.Text.Trim();
+            string Opis = txtOpis.Text.Trim();
+
+            
+            if (!string.IsNullOrEmpty(Naziv) && !string.IsNullOrEmpty(Opis))
+            {
+                
+                string connectionString = @"Server=ELITEBOOK\SQLEXPRESS;Database=WebFormsLabos;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    
+                    string query = "INSERT INTO Products (Name, Description) VALUES (@Name, @Description)";
+
+                    
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        
+                        cmd.Parameters.AddWithValue("@Name", Naziv);
+                        cmd.Parameters.AddWithValue("@Description", Opis);
+
+                        
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                
+                txtNaziv.Text = string.Empty;
+                txtOpis.Text = string.Empty;
+
+                
+                PopulateGridView();
+            }
+            else
+            {
+                
+            }
         }
     }
 }
