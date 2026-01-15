@@ -39,7 +39,7 @@ namespace WebForms
 
         public static void RegisterJQueryScriptManager()
         {
-            ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
+            Microsoft.ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
                 new ScriptResourceDefinition
                 {
                     Path = "~/scripts/jquery-3.7.0.min.js",
@@ -48,5 +48,13 @@ namespace WebForms
                     CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.js"
                 });
         }
+    }
+
+    internal class ScriptResourceDefinition
+    {
+        public string Path { get; set; }
+        public string DebugPath { get; set; }
+        public string CdnPath { get; set; }
+        public string CdnDebugPath { get; set; }
     }
 }
