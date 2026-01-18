@@ -1,14 +1,26 @@
+<<<<<<< HEAD
+﻿using System.Web.Optimization;
+=======
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.UI;
+>>>>>>> ee42dff59fd7cef9bbeeb953644c293ca9e88a63
 
 namespace WebForms
 {
     public class BundleConfig
     {
+<<<<<<< HEAD
+        public static void RegisterBundles(BundleCollection bundles)
+        {
+            
+        }
+    }
+}
+=======
         // For more information on Bundling, visit https://go.microsoft.com/fwlink/?LinkID=303951
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -50,3 +62,4 @@ namespace WebForms
         }
     }
 }
+>>>>>>> ee42dff59fd7cef9bbeeb953644c293ca9e88a63
